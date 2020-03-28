@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "test-app-covid-api"
+    }
+  },
+  "defaultProject": "test-app-covid-api",
+  "cli": {
+    "analytics": "a9685946-2f59-4ff6-82e3-8f1cf899d11a"
+  }
 }
