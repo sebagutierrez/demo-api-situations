@@ -1,26 +1,27 @@
 <mgl-timeline *ngIf="isDataLoaded">
     <mgl-timeline-entry *ngFor="let element of apiData">
-        <mgl-timeline-entry-header>{{ element.date }}</mgl-timeline-entry-header>
-        <mgl-timeline-entry-content> 
 
-            <h2 *ngIf="element.reports">Situations</h2>
+        <mgl-timeline-entry-header>{{ element.date | date:'fullDate' }}</mgl-timeline-entry-header>
+
+        <mgl-timeline-entry-content> 
+            <h2 class="situationsHeader" *ngIf="element.reports">Situations</h2>
 
             <ul *ngFor="let report of element.reports">
-                <li>{{ report }} </li>
+                <li>{{ report }}</li>
             </ul>
 
-            <h2 *ngIf="element.preparedness_and_responses"> Preparedness and responses </h2>
+            <h2 class="preparednessHeader" *ngIf="element.preparedness_and_responses"> Preparedness and responses </h2>
 
             <div class="preparednessAndResponses">
                 <ul *ngFor="let response of element.preparedness_and_responses">
-                    {{ response?.authority }}:
+                    <p class="authority">{{ response?.authority }}:</p>
                     <ul *ngFor="let action of response.actions">
-                        <li>
-                            {{ action }}
-                        </li> 
+                        <li>{{ action }}</li> 
                     </ul>
                 </ul>
             </div>
         </mgl-timeline-entry-content>
+        
+
     </mgl-timeline-entry>
 </mgl-timeline>
